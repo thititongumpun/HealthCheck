@@ -1,14 +1,16 @@
 const schedule = require('node-schedule');
-const request = require('request');
+const axios = require('axios');
 
-schedule.scheduleJob('* * * * *', () => {
+schedule.scheduleJob('0 */2 * * *', () => {
   healthCheck();
 });
 
 const healthCheck = async () => {
-  await request('https://foodgenerateapi.herokuapp.com/health', (error, response, body) => {
-    console.log('error:', error);
-    console.log('statusCode:', response && response.statusCode);
-    console.log('body:', body);
-  });
+  await axios.get('https://foodgenerateapi.herokuapp.com/health')
+    .then(({ data }) => {
+      console.log(data)
+    })
+    .catch((error) => {
+    console.log(error);
+    });
 }
