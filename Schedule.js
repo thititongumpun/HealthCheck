@@ -1,8 +1,15 @@
 const schedule = require('node-schedule');
 const axios = require('axios');
 
-schedule.scheduleJob('0 */2 * * *', () => {
+let i = 0;
+
+schedule.scheduleJob('*/5 * * * *', () => {
+  console.log('Start request...........')
+  
   healthCheck();
+
+  if (healthCheck) ++i;
+    console.log('Requesting ${i} times');
 });
 
 const healthCheck = async () => {
