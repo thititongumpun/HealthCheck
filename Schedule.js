@@ -6,10 +6,10 @@ const axios = require('axios');
 const port = process.env.PORT || 80;
 
 let i = 0;
-const time = new Date().toLocaleString();
-
 
 schedule.scheduleJob('*/5 * * * *', () => {
+  const time = new Date().toLocaleString();
+
   healthCheck();
 
   if (healthCheck) ++i;
