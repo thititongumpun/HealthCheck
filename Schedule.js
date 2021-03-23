@@ -6,9 +6,10 @@ const axios = require('axios');
 const port = process.env.PORT || 80;
 
 let i = 0;
-let time = new Date().toLocaleString();
 
-schedule.scheduleJob('*/5 * * * *', () => {
+
+schedule.scheduleJob('*/2 * * * *', () => {
+  let time = new Date().toLocaleString();
 
   healthCheck();
 
@@ -31,5 +32,6 @@ const healthCheck = async () => {
 }
 
 app.listen(port, () => {
+  let time = new Date().toLocaleString();
   console.log(`${time} Start cronjob...`);
 })
