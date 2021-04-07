@@ -5,7 +5,7 @@ const axios = require('axios');
 
 const port = process.env.PORT || 80;
 
-let i = 0;
+let i = 1;
 
 
 schedule.scheduleJob('*/2 * * * *', () => {
