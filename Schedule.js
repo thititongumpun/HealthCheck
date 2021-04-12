@@ -8,11 +8,11 @@ const port = process.env.PORT || 80;
 let i = 1;
 
 
-schedule.scheduleJob('*/2 * * * *', () => {
+schedule.scheduleJob('*/5 * * * *', () => {
   let time = new Date().toLocaleString();
 
   healthCheck();
-
+5
   if (healthCheck) ++i;
     console.log(`${time} requesting ${i} times`);
 });
